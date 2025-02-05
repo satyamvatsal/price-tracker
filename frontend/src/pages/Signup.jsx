@@ -108,22 +108,24 @@ const Signup = () => {
             required
           />
           {confirm ? (
-            <div className="flex flex-row">
+            <div className="flex flex-row justify-around">
               <input
-                type="checkbox"
-                checked={confirm}
-                onChange={() => setConfirm(!confirm)}
-                className="mr-2"
+                type="number"
+                placeholder="Enter OTP"
+                className="w-full px-4 py-2 mx-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                onChange={(e) => setOtp(e.target.value)}
+                required
               />
-              <p className="text-sm text-gray-600">
-                I agree to the{" "}
-                <a href="#" className="text-blue-500">
-                  Terms and Conditions
-                </a>
-              </p>
+              <button
+                onClick={handleResendOtp}
+                className="w-full bg-blue-500 mx-2 text-white py-2 rounded-lg hover:bg-blue-600 transition duration-300"
+              >
+                Resend OTP
+              </button>
             </div>
-          ) : null}
-
+          ) : (
+            <> </>
+          )}
           <button
             type="submit"
             className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition duration-300"
